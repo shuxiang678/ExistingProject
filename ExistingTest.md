@@ -7,33 +7,35 @@ output:
     keep_md: yes
 ---
 
+```r
+## insert your brilliant WORKING code here
 
+treeage <- read.csv("H:/Shared drives/Model Comparison/Compilation_Code_R/PGYI Compiled/i_tree_age.csv")
+plot_level2 <- read.csv("H:/Shared drives/Model Comparison/Compilation_Code_R/PGYI Compiled/i_plot_level2.csv")
 
-## R Markdown
+################################################################################
+#  STEP 1. fill in missing ages & remove duplicates - goal to have an age for both total and breast height, where available
+################################################################################
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+treeage$stump_age <- as.numeric(treeage$stump_age)
+```
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
+```
+## Warning: NAs introduced by coercion
+```
 
 ```r
-summary(cars)
+treeage$total_age <- as.numeric(treeage$total_age)
 ```
 
 ```
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
+## Warning: NAs introduced by coercion
 ```
 
-## Including Plots
+```r
+treeage$dbh_age <- as.numeric(treeage$dbh_age)
+```
 
-You can also embed plots, for example:
-
-![](ExistingTest_files/figure-html/pressure-1.png)<!-- -->
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```
+## Warning: NAs introduced by coercion
+```
